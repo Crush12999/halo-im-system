@@ -1,7 +1,12 @@
 server:
   port: 8000
 
-#spring:
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://127.0.0.1:3306/im-core?serverTimezone=UTC&useSSL=false&characterEncoding=UTF8
 #  redis:
 #    host: 127.0.0.1
 #    port: 6379
@@ -16,3 +21,11 @@ server:
 # logger 配置
 logging:
   config: classpath:logback-spring.xml
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath*:mapper/*.xml
+  global-config:
+    db-config:
+      update-strategy: NOT_EMPTY
